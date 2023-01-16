@@ -6,22 +6,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style></style>
+    <style>
+        #hata{
+            color: red;
+        }
+    </style>
 
 </head>
 
 <body>
+    <div>
+        <label for="textDogumYili">Doğum yılınız</label> <br>
+        <input type="text" value="" placeholder="Doğum yılınızı girin" id="textDogumYili">
+        <button id="buttonHesapla" onclick="yasHesapla()">Hesapla</button><br>
+        <p id="sonuc">Yaşınız, <span id="mesaj">0</span> olarak hesaplandı. </p>
+        <p id="hata"></p>
 
-
-
-
-
-
-
-
+    </div>
     <script>
-        
         console.log('ilk js işlemimiz.');
+        //string:
+        let isim = 'türkay';
+        console.log(isim);
+
+        //number: Her türlü sayısal veriyi tutabilen veri tipi...
+        let dogumYili = document.getElementById('textDogumYili').value;
+        let bugununYili = 2023
+        let yas = bugununYili - dogumYili;
+
+        console.log(yas);
+
+        //Bir ürünün, indirimli fiyatını hesapladık.
+
+        let fiyat = 1000;
+        let indirim = 0.15;
+
+        console.log('İndirimli fiyat', fiyat * (1 - indirim));
+
+        //butona basıldığında:
+        function yasHesapla() {
+            //input'dan değeri oku:
+            let dogumYili = document.getElementById('textDogumYili').value;
+
+            let bugununYili = new Date().getFullYear();
+            let pHata = document.getElementById('hata');
+            //yaşı hesaplamak için bu yıldan çıkart:
+            if (!isNaN(dogumYili)) {
+                let yas = bugununYili - dogumYili;
+                //yaş değişkeninin değerini göster:
+                document.getElementById('mesaj').innerText = yas;
+                console.log(yas);
+                pHata.innerText = '';
+            }else{
+
+                pHata.innerText = 'Lütfen doğum yılınızı sayı olarak girdiğinize emin olun!'
+                //alert()
+            }
+
+        }
+
+        function test(){
+            console.log('deneme');
+        }
+/*
+        //javascript.info
+        https://tr.javascript.info/variables
+        https://tr.javascript.info/types
+        https://tr.javascript.info/comparison
+
+*/
+
+
+
+
+
+
+
     </script>
 </body>
 
